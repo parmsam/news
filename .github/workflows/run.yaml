@@ -1,7 +1,7 @@
 name: Run news.R manually
 
 on:
-  workflow_dispatch:
+  workflow_dispatch
 
 jobs:
   run-news:
