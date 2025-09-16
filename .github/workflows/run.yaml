@@ -1,17 +1,16 @@
-name: Run news.R manually
+name: render.yaml
 
 on:
   push:
-    branches: master
+    branches: main
 
 permissions:
   contents: write
 
 jobs:
-  run-news:
+  render:
     runs-on: ubuntu-latest
     steps:
-
       # Checkout this repo
       - uses: actions/checkout@v4
 
@@ -23,8 +22,9 @@ jobs:
       # Install R packages from files/DESCRIPTION
       - uses: r-lib/actions/setup-r-dependencies@v2
 
-      - name: Run news.R
-        run: Rscript news.R
+      # Execute the script
+      - name: Run a script with a secret
+        run: Rscript scrape.R
         env:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
 
