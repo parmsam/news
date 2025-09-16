@@ -1,0 +1,13 @@
+Title: GrabNews
+Version: 0.1.0
+Description: A simple R project for grabbing news. This project runs via GitHub Actions.
+Authors@R: person("Your", "Name", email = "your.email@example.com", role = c("aut", "cre"))
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 4.0.0)
+Imports:
+    httr2
+VignetteBuilder: knitr
