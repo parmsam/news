@@ -1,4 +1,4 @@
-name: render.yaml
+name: run.yaml
 
 on:
   push:
