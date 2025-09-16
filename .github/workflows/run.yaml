@@ -7,18 +7,19 @@ jobs:
   run-news:
     runs-on: ubuntu-latest
     steps:
+
+      # Checkout this repo
       - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
+      # Install R
       - name: Set up R
-        uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
 
-      - name: Install dependencies
-        run: |
-          if [ -f DESCRIPTION ]; then
-            Rscript -e 'if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")'
-            Rscript -e 'remotes::install_deps("data", dependencies = TRUE)'
-          fi
+      - name: Install R packages from files/DESCRIPTION
+      - uses: r-lib/actions/setup-r-dependencies@v2
 
       - name: Run news.R
         run: Rscript news.R
